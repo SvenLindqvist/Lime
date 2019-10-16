@@ -1,0 +1,1 @@
+create_plugin('limepkg-sprint', 'limepkg_sprint')
