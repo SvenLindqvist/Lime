@@ -4,6 +4,7 @@ import webargs.fields as fields
 from webargs.flaskparser import use_args
 from ..endpoints import api
 import lime_query
+from ..querys import querys
 
 
 logger = logging.getLogger(__name__)
@@ -16,6 +17,7 @@ class LimeobjectCounter(webserver.LimeResource):
     # See https://webargs.readthedocs.io/en/latest/ for more info.
     args = {
         "limetype": fields.String(required=True),
+        # "_filter": fields.String(required=False),
     }
 
 
@@ -25,17 +27,14 @@ class LimeobjectCounter(webserver.LimeResource):
         """
         # limetype = self.application.limetypes.get_limetype(args['limetype'])
         # limeobjects = limetype.get_all()
+        limetype = args['limetype']
 
-        query = {
-            'limetype': args['limetype'],
-            'responseFormat': {
-                'object': {
-                    'name': None,
-                    'coworker': None,
-                    'postaladdress1': None
-                }
-            }
-        }
+        if(limetype == 'solutionimprovement'):
+            query = querys.get_solution_improvement_query()
+        elif(limetype == 'deal'):
+            query = querys.deal
+        elif(limetype == 'company'):
+            query = querys.company
 
         limeapp = self.application
         response = lime_query.execute_query(
@@ -45,5 +44,43 @@ class LimeobjectCounter(webserver.LimeResource):
 
         return response
 
+"""         filt = args['filter']
+        if filt == 'true':
+            query = {
+                'limetype': args['limetype'],
+                'responseFormat': {
+                    'object': {
+                        'title': None,
+                        'priority': None,
+                        'coworkercreatedby': None,
+                        'card': None,
+                        'misc': None,
+                        'comment': None,
+                        'solutionimprovementstatus': None,
+                        'coworker': None,
+                    }
+                },
+                'filter': {
+                    'key': 'priority',
+                    'op': '=',
+                    'exp': 'urgent'
+                }
+            }
+        else:
+            query = {
+                'limetype': args['limetype'],
+                'responseFormat': {
+                    'object': {
+                        'title': None,
+                        'priority': None,
+                        'coworkercreatedby': None,
+                        'card': None,
+                        'misc': None,
+                        'comment': None,
+                        'solutionimprovementstatus': None,
+                        'coworker': None,
+                    }
+                }
+            } """
 
-api.add_resource(LimeobjectCounter, '/count/')
+api.add_resource(LimeobjectCounter, '/test/')
