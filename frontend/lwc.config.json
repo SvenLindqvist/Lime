@@ -1,0 +1,10 @@
+[
+    {
+        "name": "lwc-test-webcomponent-loader",
+        "slot": "plugin.loaders"
+    },
+    {
+        "name": "lwc-test-webcomponent-hello-world",
+        "slot": "dashboard"
+    }
+]

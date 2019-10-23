@@ -1,0 +1,1 @@
+create_plugin('test-webcomponent', 'test-webcomponent')
