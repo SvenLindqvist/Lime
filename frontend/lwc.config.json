@@ -1,0 +1,10 @@
+[
+    {
+        "name": "lwc-limepkg-my-test-loader",
+        "slot": "plugin.loaders"
+    },
+    {
+        "name": "lwc-limepkg-my-test-hello-world",
+        "slot": "dashboard"
+    }
+]
