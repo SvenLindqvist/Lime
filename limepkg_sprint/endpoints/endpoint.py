@@ -20,7 +20,6 @@ class LimeobjectCounter(webserver.LimeResource):
         # "_filter": fields.String(required=False),
     }
 
-
     @use_args(args)
     def get(self, args):
         """Get the current number of objects of the given type in the system.
@@ -32,9 +31,9 @@ class LimeobjectCounter(webserver.LimeResource):
         if(limetype == 'solutionimprovement'):
             query = querys.get_solution_improvement_query()
         elif(limetype == 'deal'):
-            query = querys.deal
+            query = querys.get_deal_query()
         elif(limetype == 'company'):
-            query = querys.company
+            query = querys.get_company_query()
 
         limeapp = self.application
         response = lime_query.execute_query(
