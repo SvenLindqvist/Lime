@@ -25,6 +25,7 @@ class LimeobjectCounter(webserver.LimeResource):
         """Get the current number of objects of the given type in the system.
         """
         # limetype = self.application.limetypes.get_limetype(args['limetype'])
+        # ALSHDASDS
         # limeobjects = limetype.get_all()
         limetype = args['limetype']
 
