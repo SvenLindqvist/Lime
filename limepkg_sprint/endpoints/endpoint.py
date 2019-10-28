@@ -43,43 +43,5 @@ class LimeobjectCounter(webserver.LimeResource):
 
         return response
 
-"""         filt = args['filter']
-        if filt == 'true':
-            query = {
-                'limetype': args['limetype'],
-                'responseFormat': {
-                    'object': {
-                        'title': None,
-                        'priority': None,
-                        'coworkercreatedby': None,
-                        'card': None,
-                        'misc': None,
-                        'comment': None,
-                        'solutionimprovementstatus': None,
-                        'coworker': None,
-                    }
-                },
-                'filter': {
-                    'key': 'priority',
-                    'op': '=',
-                    'exp': 'urgent'
-                }
-            }
-        else:
-            query = {
-                'limetype': args['limetype'],
-                'responseFormat': {
-                    'object': {
-                        'title': None,
-                        'priority': None,
-                        'coworkercreatedby': None,
-                        'card': None,
-                        'misc': None,
-                        'comment': None,
-                        'solutionimprovementstatus': None,
-                        'coworker': None,
-                    }
-                }
-            } """
 
 api.add_resource(LimeobjectCounter, '/test/')
